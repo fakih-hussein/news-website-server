@@ -21,4 +21,8 @@ class NewsController extends Controller{
             "is_restricted"=>$request->is_restricted,
         ]);
     }
+
+    function delete_news($id){
+        $news=News::find($id)->delete();
+    }
 }
