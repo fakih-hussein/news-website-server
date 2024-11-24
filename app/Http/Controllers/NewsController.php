@@ -12,6 +12,10 @@ class NewsController extends Controller{
             "content"=>$request->content,
             "is_restricted"=>$request->is_restricted,
         ]);
+
+        return response()->json([
+            "posted-news"=>$news
+        ]);
     }
 
     function edit_news($id,Request $request){
@@ -20,9 +24,19 @@ class NewsController extends Controller{
             "content"=>$request->content,
             "is_restricted"=>$request->is_restricted,
         ]);
+
+        return response()->json([
+            "updated-news"=>$news
+        ]);
     }
 
     function delete_news($id){
         $news=News::find($id)->delete();
+
+        return response()->json([
+        "deleted-news"=>$news
+        ]);
+        }
     }
-}
+
+    
