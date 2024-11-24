@@ -11,7 +11,14 @@ class NewsController extends Controller{
             "title"=>$request->title,
             "content"=>$request->content,
             "is_restricted"=>$request->is_restricted,
+        ]);
+    }
 
+    function edit_news($id,Request $request){
+        $news = News::find($id)->update([
+            "title"=>$request->title,
+            "content"=>$request->content,
+            "is_restricted"=>$request->is_restricted,
         ]);
     }
 }
